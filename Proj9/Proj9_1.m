@@ -1,0 +1,16 @@
+a = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+b = ([0:10]);
+c = (([0:10]).^2);
+d = (([0:10]).^3);;
+e = (([0:10]).^4);
+phi_1=a./sqrt(a*a');
+ga_2 = b - (b*phi_1')*phi_1;
+phi_2 = ga_2./sqrt(ga_2*ga_2');
+ga_3 = c - (c*phi_1')*phi_1 - (c*phi_2')*phi_2;
+phi_3 =  ga_3./sqrt(ga_3*ga_3');
+ga_4 = d - (d*phi_1')*phi_1 - (d*phi_2')*phi_2 - (d*phi_3')*phi_3;
+phi_4 =  ga_4./sqrt(ga_4*ga_4');
+ga_5 = e - (e*phi_1')*phi_1 - (e*phi_2')*phi_2 - (e*phi_3')*phi_3 - (e*phi_4')*phi_4;
+phi_5 = ga_5./sqrt(ga_5*ga_5');
+A = [phi_1 ;phi_2;phi_3;phi_4;phi_5];
+aa = A*A'
