@@ -1,19 +1,19 @@
-data= [2 -1 3; -1 3 5; 0 2 4; 4 -2 -1;1 0 4;-2 5 5];
-meand=mean(data);
-data(:,1) = data(:,1) - meand(1)
-data(:,2) = data(:,2) - meand(2)
-data(:,3) = data(:,3) - meand(3)
-B = data'*data;
-C = data*data';
+data = [2 -1 3; -1 3 5; 0 2 4; 4 -2 -1; 1 0 4; -2 5 5];
+meand = mean(data);
+data(:, 1) = data(:, 1) - meand(1)
+data(:, 2) = data(:, 2) - meand(2)
+data(:, 3) = data(:, 3) - meand(3)
+B = data' * data;
+C = data * data';
 [V, D1] = eig(B);
 [U, D2] = eig(C);
-U=U(:,[end:-1:1]); V=V(:,[end:-1:1]);  %
-S1 = U'*data*V;
-eig1 = S1(1,1);
-eig2 = S1(2,2);
-v1 = V(:,1)';
-v2 = V(:,2)';
-u1 = U(:,1);
-u2 = U(:,2);
-data_2d = eig1*u1*v1+eig2*u2*v2+meand %
-data_1d = eig1*u1*v1+meand %
+U = U(:, [end:-1:1]); V = V(:, [end:-1:1]); %
+S1 = U' * data * V;
+eig1 = S1(1, 1);
+eig2 = S1(2, 2);
+v1 = V(:, 1)';
+v2 = V(:, 2)';
+u1 = U(:, 1);
+u2 = U(:, 2);
+data_2d = eig1 * u1 * v1 + eig2 * u2 * v2 + meand %
+data_1d = eig1 * u1 * v1 + meand %
